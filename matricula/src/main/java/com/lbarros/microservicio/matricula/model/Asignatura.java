@@ -32,6 +32,10 @@ public class Asignatura {
 		this.creditos = creditos;
 		this.profesor = profesor;
 	}
+	
+	public Asignatura() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;

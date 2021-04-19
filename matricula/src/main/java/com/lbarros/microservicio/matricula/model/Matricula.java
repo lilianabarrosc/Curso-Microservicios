@@ -37,6 +37,15 @@ public class Matricula {
 	public Matricula() {
 	}
 
+	public Matricula(Asignatura asignatura, PeriodoEscolar periodoEscolar, String identificacionAlumno,
+			String nombreAlumno) {
+		super();
+		this.asignatura = asignatura;
+		this.periodoEscolar = periodoEscolar;
+		this.identificacionAlumno = identificacionAlumno;
+		this.nombreAlumno = nombreAlumno;
+	}
+
 	/*
 	public Long getId_matricula() {
 		return id_matricula;

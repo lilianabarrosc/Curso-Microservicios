@@ -44,6 +44,7 @@ public class MatriculaController {
 	@Autowired
 	private PeriodoEscolarRepository periodoEscolarRepository;
 	
+	/*TODO moverlo a una clase de configuracion*/
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
@@ -88,7 +89,13 @@ public class MatriculaController {
 	public Alumno getAlumno(@PathVariable String id)
 	{
 		URI catalogoURI = eureka.getUri("SERVICIO.ALUMNOS");
-		Alumno prod = restTemplate.getForObject(catalogoURI.resolve("/alumno/"+id), Alumno.class);
+		Alumno prod = null;
+		try {
+			prod = restTemplate.getForObject(catalogoURI.resolve("/alumno/"+id), Alumno.class);
+		}catch (Exception e) {
+			System.out.println("error--> " + e);
+		}
+		
 		return prod;
 	}
 	

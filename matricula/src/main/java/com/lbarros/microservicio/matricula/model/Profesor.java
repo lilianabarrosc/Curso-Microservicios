@@ -48,6 +48,10 @@ public class Profesor {
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	
+	public Profesor() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;

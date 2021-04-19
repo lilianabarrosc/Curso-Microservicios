@@ -26,6 +26,10 @@ public class PeriodoEscolar {
 		this.periodoInicio = periodoInicio;
 		this.periodoFin = periodoFin;
 	}
+	
+	public PeriodoEscolar() {
+		
+	}
 
 	public Long getId() {
 		return id;
