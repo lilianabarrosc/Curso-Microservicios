@@ -5,6 +5,7 @@ spring:
         git:
           cloneOnStart: true
           uri: https://github.com/lilianabarrosc/Config-Microservicios-Eureka
+          #force-pull: true
           repos:
             servicio:
               pattern:
