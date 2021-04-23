@@ -3,13 +3,13 @@ package com.lbarros.microservicio.zuul.fallbacks;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lbarros.microservicio.zuul.models.ResponseError;

@@ -34,9 +34,10 @@ public class ZuulApplication {
 		return new MiPostFiltro(this.timeIni);
 	}
 
-//	@Bean
-//	public MyFallbackProvider myFallbackProvider() {
-//		return new MyFallbackProvider();
-//	}
+	/*Solo se ejecutara para rutas validas, si no existe la ruta no se vera reflejado*/
+	@Bean
+	public MyFallbackProvider myFallback() {
+		return new MyFallbackProvider();
+	}
 
 }
