@@ -16,3 +16,8 @@ spring:
   jpa:
     generate-ddl: true
     
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:7777/user
+    

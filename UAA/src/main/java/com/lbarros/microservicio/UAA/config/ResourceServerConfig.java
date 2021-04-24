@@ -19,6 +19,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		.anyRequest().authenticated()
 		.and().csrf().disable();
 		
+		//filtro de autenticacion
 		http.exceptionHandling().authenticationEntryPoint(new AuthExceptionEntryPoint()).and()
 		.addFilterAfter(new CustomFilter(), BasicAuthenticationFilter.class);
 	}

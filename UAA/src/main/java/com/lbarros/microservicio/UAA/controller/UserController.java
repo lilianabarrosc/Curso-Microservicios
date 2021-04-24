@@ -10,9 +10,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.common.OAuth2RefreshToken;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	
 	@Resource(name = "tokenStore")
-	TokenStore tokenStore;
+	JwtTokenStore jwtTokenStore;
 	
 	@Resource(name = "tokenServices")
 	ConsumerTokenServices tokenServices;
@@ -41,7 +43,7 @@ public class UserController {
 	@GetMapping("/tokens")
 	public List<String> getTokens(String client_id, String user) {
 		List<String> tokenValues = new ArrayList<String>();
-		Collection<OAuth2AccessToken> tokens = tokenStore.findTokensByClientIdAndUserName(client_id, user);
+		Collection<OAuth2AccessToken> tokens = jwtTokenStore.findTokensByClientIdAndUserName(client_id, user);
 		if (tokens != null) {
 			for (OAuth2AccessToken token : tokens) {
 				tokenValues.add(token.getValue());
@@ -56,12 +58,14 @@ public class UserController {
 		return auth.substring(7);
 	}
 	
+	//en memoria no revoca tokens
 	@PostMapping("/refreshtoken/revoke")
 	public String revokeRefreshToken(@RequestHeader("Authorization") String auth) {
-	    if (tokenStore instanceof JdbcTokenStore){
+	    if (jwtTokenStore instanceof JwtTokenStore){
 	    	System.out.println("Eliminar token refresh");
-	        ((JdbcTokenStore) tokenStore).removeRefreshToken(auth.substring(7));
+	    	OAuth2RefreshToken oauth2RefreshToken=jwtTokenStore.readRefreshToken(auth);
+	        ((JwtTokenStore) jwtTokenStore).removeRefreshToken(oauth2RefreshToken);
 	    }
 	    return auth.substring(7);
-	}
+	} 
 }

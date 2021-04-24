@@ -28,6 +28,7 @@ public class CustomFilter extends // AbstractAuthenticationProcessingFilter {
 		chain.doFilter(request, response);
 	}
 
+	//filtro mas especifico del token lanzando excepciones
 	/*
 	 * public CustomFilter() { super("/oauth/check_token"); }
 	 * 
