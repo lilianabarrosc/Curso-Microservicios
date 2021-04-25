@@ -1,0 +1,39 @@
+db.createCollection('alumno', {
+  validator: {
+    $jsonSchema: {
+      bsonType: 'object',
+      description: 'Alumno de una universidad',
+      title: 'alumno',
+      required: ['numeroIdentificacion', 'nombre', 'apellidoPat', 'apellidoMat', 'ciudad', 'direccion'],
+      properties: {
+        numeroIdentificacion: {
+          bsonType: 'long'
+        },
+        dv: {
+          bsonType: 'string'
+        },
+        nombre: {
+          bsonType: 'string'
+        },
+        apellidoPat: {
+          bsonType: 'string'
+        },
+        apellidoMat: {
+          bsonType: 'string'
+        },
+        ciudad: {
+          bsonType: 'string'
+        },
+        direccion: {
+          bsonType: 'string'
+        },
+        telefono: {
+          bsonType: 'string'
+        },
+        fechaNacimiento: {
+          bsonType: 'date'
+        }
+      }
+    }
+  }
+});

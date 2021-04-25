@@ -30,7 +30,7 @@ CREATE TABLE `Periodo_escolar` (
     )
 );
 CREATE TABLE `Matricula` ( 
-   `identificacion_alumno` BIGINT NOT NULL,
+   `identificacion_alumno` VARCHAR(50) NOT NULL,
    `nombre_alumno` VARCHAR(200),
    `periodo_escolar_id` BIGINT NOT NULL,
    `asignatura_id` BIGINT NOT NULL,

@@ -1,6 +1,6 @@
 package com.lbarros.microservicio.matricula.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Alumno {
 	private String _id;
@@ -14,7 +14,7 @@ public class Alumno {
 	private String telefono;
 	private Date fechaNacimiento;
 	
-	public Alumno(Long numeroIdentificacion, String dv, String nombre, String apellidoPat, String apellidoMat,
+	public Alumno(String _id, Long numeroIdentificacion, String dv, String nombre, String apellidoPat, String apellidoMat,
 			String ciudad, String direcion, String telefono, Date fechaNacimiento) {
 		super();
 		this.numeroIdentificacion = numeroIdentificacion;
@@ -26,6 +26,7 @@ public class Alumno {
 		this.direcion = direcion;
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
+		this._id = _id;
 	}
 	
 	public Alumno() {

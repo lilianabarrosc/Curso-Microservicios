@@ -23,7 +23,7 @@ public class Alumno {
 	private Date fechaNacimiento;
 	//private String sexo;
 	
-	public Alumno(Long numeroIdentificacion, String dv, String nombre, String apellidoPat, String apellidoMat, String ciudad, String direcion,
+	public Alumno(String _id, Long numeroIdentificacion, String dv, String nombre, String apellidoPat, String apellidoMat, String ciudad, String direcion,
 			String telefono, Date fechaNacimiento) {
 		super();
 		this.numeroIdentificacion = numeroIdentificacion;
@@ -35,11 +35,20 @@ public class Alumno {
 		this.direcion = direcion;
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
+		this._id = _id;
 	}
 	
 	public Alumno() {
 		
 	};
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
 
 	public Long getNumeroIdentificacion() {
 		return numeroIdentificacion;
